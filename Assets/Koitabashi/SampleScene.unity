@@ -139,7 +139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &38298911
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,6 +183,8 @@ GameObject:
   - component: {fileID: 247621688}
   - component: {fileID: 247621687}
   - component: {fileID: 247621686}
+  - component: {fileID: 247621690}
+  - component: {fileID: 247621691}
   m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Untagged
@@ -205,7 +207,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -270,13 +272,56 @@ Transform:
   m_GameObject: {fileID: 247621685}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.1077144, y: -0.56, z: -2.62}
+  m_LocalPosition: {x: -0.17, y: -0.02, z: -2.62}
   m_LocalScale: {x: 0.1, y: 4, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2056344228}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &247621690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 247621685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f6e55e3df397be4ba62da062c67c230, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cuttingPlane: {fileID: 2056344227}
+  capMaterial: {fileID: 2100000, guid: 6fcdf67acdff5944fb98ac1a30d12975, type: 2}
+  cuttingBoxSize: {x: 2, y: 0.01, z: 2}
+  targetTag: Cuttable
+--- !u!54 &247621691
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 247621685}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -385,7 +430,7 @@ GameObject:
   - component: {fileID: 913532564}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Cuttable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -405,7 +450,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -594,7 +639,7 @@ Transform:
   m_GameObject: {fileID: 2056344227}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.133, z: 2.8100002}
+  m_LocalPosition: {x: 0, y: 0, z: 2.8100002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -612,7 +657,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f309737cb26abf4cab6721353736b2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  size: {x: 1, y: 0.01, z: 1}
+  size: {x: 2, y: 0.01, z: 2}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
