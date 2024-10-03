@@ -16,7 +16,7 @@ public class Cutter2 : MonoBehaviour
         {
             
             GameObject target = other.gameObject;
-
+            
             // ギズモが対象オブジェクトに触れているか確認
             if (IsTouchingCuttingBox(target.GetComponent<Renderer>().bounds, cuttingPlane.transform, cuttingBoxSize))
             {
