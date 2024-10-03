@@ -16,6 +16,14 @@ public class Cutter : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Cuttable"))
+        {
+            PerformCut(other.gameObject);
+        }
+    }
+
     void PerformCut(GameObject target)
     {
         Vector3 anchorPoint = cuttingPlane.transform.position;
