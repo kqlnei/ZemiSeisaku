@@ -210,7 +210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bc7399896bd35c418c9b663519ac333, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 1
 --- !u!4 &10776863 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7076056078656188179, guid: b0298182867c44a44965d249d9b8129c, type: 3}
@@ -736,9 +736,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 4662669626359256806, guid: 15ff15985ce5dc84fbb06c6bbc059415, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6201081099213819912, guid: 15ff15985ce5dc84fbb06c6bbc059415, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.52
+      value: -0.03
       objectReference: {fileID: 0}
     - target: {fileID: 6201081099213819912, guid: 15ff15985ce5dc84fbb06c6bbc059415, type: 3}
       propertyPath: m_LocalPosition.y
@@ -746,7 +750,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6201081099213819912, guid: 15ff15985ce5dc84fbb06c6bbc059415, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 13.68
+      value: 17.344
       objectReference: {fileID: 0}
     - target: {fileID: 6201081099213819912, guid: 15ff15985ce5dc84fbb06c6bbc059415, type: 3}
       propertyPath: m_LocalRotation.w
