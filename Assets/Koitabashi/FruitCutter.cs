@@ -22,15 +22,15 @@ public class FruitCutter : MonoBehaviour
             MeshRenderer targetRenderer = other.GetComponent<MeshRenderer>();
             if (targetRenderer != null)
             {
-                // E½E½E½E½ cuttingBounds E½E½E½XE½V
+                // ï¿½ï¿½ï¿½ï¿½ cuttingBounds ï¿½ï¿½ï¿½Xï¿½V
                 Bounds cuttingBounds = new Bounds(cuttingPlane.transform.position, cuttingBoxSize);
                 Bounds targetBounds = targetRenderer.bounds;
 
-                // E½ÍˆÍ‚ï¿½E½mE½FE½E½E½ÄØ’fE½E½E½E½E½E½E½E½E½s
+                // ï¿½ÍˆÍ‚ï¿½ï¿½mï¿½Fï¿½ï¿½ï¿½ÄØ’fï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½s
                 if (cuttingBounds.Intersects(targetBounds))
                 {
                     PerformCut(other.gameObject);
-                    alreadyCutObjects.Add(other.gameObject); // E½Ø’fE½Ï‚İ‚Æ‚ï¿½E½Ä“oE½^
+                    alreadyCutObjects.Add(other.gameObject); // ï¿½Ø’fï¿½Ï‚İ‚Æ‚ï¿½ï¿½Ä“oï¿½^
                 }
             }
         }
@@ -45,18 +45,18 @@ public class FruitCutter : MonoBehaviour
         float distanceFromCenter = Vector3.Distance(targetCenter, anchorPoint);
         Material selectedCapMaterial = (distanceFromCenter < distanceThreshold) ? capMaterialCenter : capMaterialEdge;
 
-        // MeshCutNeo E½E½ CutMesh E½E½E½\E½bE½hE½E½E½gE½pE½E½E½ÄƒIE½uE½WE½FE½NE½gE½E½Ø’f
+        // MeshCutNeo ï¿½ï¿½ CutMesh ï¿½ï¿½ï¿½\ï¿½bï¿½hï¿½ï¿½ï¿½gï¿½pï¿½ï¿½ï¿½ÄƒIï¿½uï¿½Wï¿½Fï¿½Nï¿½gï¿½ï¿½Ø’f
         (GameObject pieceA, GameObject pieceB) = MeshCutNeo.CutMesh(target, anchorPoint, normalDirection, true, selectedCapMaterial);
 
         if (pieceA != null && pieceB != null)
         {
-            // E½VE½E½E½Éï¿½E½E½E½E½E½ê‚½E½sE½[E½XE½E½alreadyCutObjectsE½É’Ç‰ï¿½
+            // ï¿½Vï¿½ï¿½ï¿½Éï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê‚½ï¿½sï¿½[ï¿½Xï¿½ï¿½alreadyCutObjectsï¿½É’Ç‰ï¿½
             alreadyCutObjects.Add(pieceA);
             alreadyCutObjects.Add(pieceB);
 
             foreach (GameObject piece in new GameObject[] { pieceA, pieceB })
             {
-                Rigidbody rb = piece.AddComponent<Rigidbody>();  // Rigidbody E½Ì‚İ’Ç‰ï¿½
+                Rigidbody rb = piece.AddComponent<Rigidbody>();  // Rigidbody ï¿½Ì‚İ’Ç‰ï¿½
                 rb.mass = 1;
                 Vector3 knockbackDirection = new Vector3(0, 1, 1).normalized;  // •ûŒü‚ğ³‹K‰»
                 rb.AddForce(knockbackDirection * forceAmount, ForceMode.Force);
@@ -70,7 +70,7 @@ public class FruitCutter : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         piece.SetActive(false);
-        alreadyCutObjects.Remove(piece); // E½E½E½E½E½E½E½Ç—ï¿½E½Ì‚ï¿½E½ßíœ
+        alreadyCutObjects.Remove(piece); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç—ï¿½ï¿½Ì‚ï¿½ï¿½ßíœ
     }
 
     void OnDrawGizmos()
@@ -115,11 +115,11 @@ public class FruitCutter : MonoBehaviour
 //            MeshRenderer targetRenderer = other.GetComponent<MeshRenderer>();
 //            if (targetRenderer != null)
 //            {
-//                // E½E½E½E½ cuttingBounds E½E½E½XE½V
+//                // ï¿½ï¿½ï¿½ï¿½ cuttingBounds ï¿½ï¿½ï¿½Xï¿½V
 //                Bounds cuttingBounds = new Bounds(cuttingPlane.transform.position, cuttingBoxSize);
 //                Bounds targetBounds = targetRenderer.bounds;
 
-//                // E½ÍˆÍ‚ï¿½E½mE½FE½E½E½ÄØ’fE½E½E½E½E½E½E½E½E½s
+//                // ï¿½ÍˆÍ‚ï¿½ï¿½mï¿½Fï¿½ï¿½ï¿½ÄØ’fï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½s
 //                if (cuttingBounds.Intersects(targetBounds))
 //                {
 //                    PerformCut(other.gameObject);
@@ -143,7 +143,7 @@ public class FruitCutter : MonoBehaviour
 //        {
 //            foreach (GameObject piece in pieces)
 //            {
-//                Rigidbody rb = piece.AddComponent<Rigidbody>();  // Rigidbody E½Ì‚İ’Ç‰ï¿½
+//                Rigidbody rb = piece.AddComponent<Rigidbody>();  // Rigidbody ï¿½Ì‚İ’Ç‰ï¿½
 //                rb.mass = 1;
 
 //                StartCoroutine(HideAfterDelay(piece, 5f));
@@ -156,7 +156,7 @@ public class FruitCutter : MonoBehaviour
 //    {
 //        yield return new WaitForSeconds(delay);
 //        piece.SetActive(false);
-//        alreadyCutObjects.Remove(piece); // E½E½E½E½E½E½E½Ç—ï¿½E½Ì‚ï¿½E½ßíœ
+//        alreadyCutObjects.Remove(piece); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç—ï¿½ï¿½Ì‚ï¿½ï¿½ßíœ
 //    }
 
 //    void OnDrawGizmos()
@@ -181,14 +181,14 @@ using System.Collections.Generic;
 
 public class FruitCutter : MonoBehaviour
 {
-    public GameObject cuttingPlane;       // E½Ø’fE½Ê‚ï¿½E½E½E½E½E½vE½E½E½[E½E½
-    public Vector3 cuttingBoxSize = new Vector3(2, 0.01f, 2);  // E½Ø’fE½Ê‚Ì”Íˆï¿½
-    public string targetTag = "Cuttable"; // E½Ø’fE½Â”\E½ÈƒIE½uE½WE½FE½NE½gE½Ìƒ^E½O
-    private HashSet<GameObject> alreadyCutObjects = new HashSet<GameObject>(); // E½Ø’fE½Ï‚İ‚ÌƒIE½uE½WE½FE½NE½gE½E½E½Ç—ï¿½
+    public GameObject cuttingPlane;       // ï¿½Ø’fï¿½Ê‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½vï¿½ï¿½ï¿½[ï¿½ï¿½
+    public Vector3 cuttingBoxSize = new Vector3(2, 0.01f, 2);  // ï¿½Ø’fï¿½Ê‚Ì”Íˆï¿½
+    public string targetTag = "Cuttable"; // ï¿½Ø’fï¿½Â”\ï¿½ÈƒIï¿½uï¿½Wï¿½Fï¿½Nï¿½gï¿½Ìƒ^ï¿½O
+    private HashSet<GameObject> alreadyCutObjects = new HashSet<GameObject>(); // ï¿½Ø’fï¿½Ï‚İ‚ÌƒIï¿½uï¿½Wï¿½Fï¿½Nï¿½gï¿½ï¿½ï¿½Ç—ï¿½
 
     private void OnTriggerEnter(Collider other)
     {
-        // E½IE½uE½WE½FE½NE½gE½E½ "Cuttable" E½^E½OE½E½E½E½E½E½E½Ä‚ï¿½E½ÄAE½E½E½Â‚Ü‚ï¿½E½Ø’fE½E½E½E½Ä‚ï¿½E½È‚ï¿½E½E½E½mE½F
+        // ï¿½Iï¿½uï¿½Wï¿½Fï¿½Nï¿½gï¿½ï¿½ "Cuttable" ï¿½^ï¿½Oï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ÄAï¿½ï¿½ï¿½Â‚Ü‚ï¿½ï¿½Ø’fï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½È‚ï¿½ï¿½ï¿½ï¿½mï¿½F
         if (other.CompareTag(targetTag) && !alreadyCutObjects.Contains(other.gameObject))
         {
             MeshRenderer targetRenderer = other.GetComponent<MeshRenderer>();
@@ -196,14 +196,14 @@ public class FruitCutter : MonoBehaviour
             {
                 Bounds targetBounds = targetRenderer.bounds;
                 Bounds cuttingBounds = new Bounds(cuttingPlane.transform.position, cuttingBoxSize);
-                if (cuttingBounds.Intersects(targetBounds)) // E½E½E½E½E½E½E½Ä‚ï¿½E½E½ÎØ’f
+                if (cuttingBounds.Intersects(targetBounds)) // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ÎØ’f
                 {
                     PerformCut(other.gameObject);
-                    alreadyCutObjects.Add(other.gameObject); // E½Ø’fE½Ï‚İ‚Æ‚ï¿½E½Ä“oE½^
+                    alreadyCutObjects.Add(other.gameObject); // ï¿½Ø’fï¿½Ï‚İ‚Æ‚ï¿½ï¿½Ä“oï¿½^
                 }
                 else
                 {
-                    Debug.Log("E½IE½uE½WE½FE½NE½gE½E½E½Ø’fE½Ê‚ÉGE½E½Ä‚ï¿½E½Ü‚ï¿½E½E½B");
+                    Debug.Log("ï¿½Iï¿½uï¿½Wï¿½Fï¿½Nï¿½gï¿½ï¿½ï¿½Ø’fï¿½Ê‚ÉGï¿½ï¿½Ä‚ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½B");
                 }
             }
         }
@@ -219,7 +219,7 @@ public class FruitCutter : MonoBehaviour
         {
             foreach (GameObject piece in pieces)
             {
-                // E½IE½E½E½WE½iE½E½E½Ìƒ}E½eE½E½E½AE½E½E½E½VE½E½E½E½E½E½E½E½E½É“KE½p
+                // ï¿½Iï¿½ï¿½ï¿½Wï¿½iï¿½ï¿½ï¿½Ìƒ}ï¿½eï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É“Kï¿½p
                 MeshRenderer originalRenderer = target.GetComponent<MeshRenderer>();
                 MeshRenderer newRenderer = piece.GetComponent<MeshRenderer>();
                 if (originalRenderer != null && newRenderer != null)
@@ -231,10 +231,10 @@ public class FruitCutter : MonoBehaviour
                 rb.mass = 1;
                 rb.AddForce(Vector3.up * Random.Range(1f, 3f), ForceMode.Impulse);
                 rb.AddTorque(new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), Random.Range(-1f, 1f)), ForceMode.Impulse);
-                alreadyCutObjects.Add(piece); // E½VE½E½E½Éï¿½E½E½E½E½E½ê‚½E½sE½[E½XE½E½E½Ø’fE½Ï‚İ‚Æ‚ï¿½E½Ä“oE½^
+                alreadyCutObjects.Add(piece); // ï¿½Vï¿½ï¿½ï¿½Éï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê‚½ï¿½sï¿½[ï¿½Xï¿½ï¿½ï¿½Ø’fï¿½Ï‚İ‚Æ‚ï¿½ï¿½Ä“oï¿½^
             }
 
-            // E½IE½E½E½WE½iE½E½E½ÌƒIE½uE½WE½FE½NE½gE½E½jE½E½
+            // ï¿½Iï¿½ï¿½ï¿½Wï¿½iï¿½ï¿½ï¿½ÌƒIï¿½uï¿½Wï¿½Fï¿½Nï¿½gï¿½ï¿½jï¿½ï¿½
             Destroy(target);
         }
     }
